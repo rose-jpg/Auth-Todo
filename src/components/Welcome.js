@@ -18,6 +18,13 @@ function Welcome() {
   })
 
   const navigate = useNavigate()
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigate("/homepage")
+      }
+    })
+  }, [])
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
@@ -32,31 +39,26 @@ function Welcome() {
       .catch((err) => alert(err.message))
   }
   const handleRegister = () => {
-    if(registerInformation.email !== registerInformation.confirmEmail ){
-        alert("Please Confirm that email are the same")
-        return
-    }
-    else  if (registerInformation.password !== registerInformation.confirmPassword){
-    alert("Please confirm that password are the same")
-    return
+    if (registerInformation.email !== registerInformation.confirmEmail) {
+      alert("Please Confirm that email are the same")
+      return
+    } else if (
+      registerInformation.password !== registerInformation.confirmPassword
+    ) {
+      alert("Please confirm that password are the same")
+      return
     }
 
-    
-
-    
-    createUserWithEmailAndPassword(auth, registerInformation.email, registerInformation.password )
+    createUserWithEmailAndPassword(
+      auth,
+      registerInformation.email,
+      registerInformation.password
+    )
       .then(() => {
         navigate("/homepage")
       })
       .catch((err) => alert(err.message))
   }
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        navigate("/homepage")
-      }
-    })
-  }, [])
 
   return (
     <div className='px-4'>
@@ -94,7 +96,7 @@ function Welcome() {
               />
               <label for=''>Confirm Email</label>
             </div>
-          
+
             <div class='inputbox'>
               <ion-icon name='lock-open-outline'></ion-icon>
               <input
@@ -102,11 +104,11 @@ function Welcome() {
                 type='password'
                 value={registerInformation.confirmPassword}
                 onChange={(e) =>
-                    setRegisterInformation({
-                      ...registerInformation,
-                      confirmPassword: e.target.value,
-                    })
-                  }
+                  setRegisterInformation({
+                    ...registerInformation,
+                    confirmPassword: e.target.value,
+                  })
+                }
               />
               <label for=''>Confirm Password</label>
             </div>
@@ -115,18 +117,16 @@ function Welcome() {
               <input
                 required
                 type='password'
-                
                 value={registerInformation.password}
                 onChange={(e) =>
-                    setRegisterInformation({
-                      ...registerInformation,
-                      password: e.target.value,
-                    })
-                  }
+                  setRegisterInformation({
+                    ...registerInformation,
+                    password: e.target.value,
+                  })
+                }
               />
               <label for=''>Password</label>
             </div>
-           
 
             <div>
               <button
