@@ -78,10 +78,10 @@ function HomePage() {
   }
 
   return (
-    <div className="">
+    <div className=" flex justify-center">
       <input
         type='text'
-        className='absolute top-[20px] left-[50px] outline-none px-1'
+        className='absolute top-[20px]  w-[80%] h-[40px] px-3 text-[#e40fac] outline-[#e40fac]'
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
       />
@@ -112,19 +112,19 @@ function HomePage() {
         <div>
           <AiOutlineCheck
             onClick={handleEditConfirm}
-            className='text-white text-[27px] absolute top-[20px] left-[250px]'
+            className='text-white text-[27px] absolute top-[18px] left-[250px]'
           />
         </div>
       ) : (
         <div>
           <AiOutlinePlus
             onClick={writeToDatabase}
-            className='text-[#e40fac] text-[27px] absolute top-[20px] right-[50px]'
+            className='text-[#e40fac] text-[27px] absolute top-[24px] right-[50px]'
           />
         </div>
       )}
      
-      <FaSignOutAlt className='absolute bottom-0 left-0 text-[red] text-[27px] m-4'
+      <FaSignOutAlt className='absolute bottom-0 left-0 text-[red] text-[24px] m-4'
         onClick={handleSignOut}/>
     </div>
   )
