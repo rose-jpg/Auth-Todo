@@ -64,8 +64,8 @@ function Welcome() {
     <div className='px-4'>
       <div>
         {isRegistering ? (
-          <div className=''>
-            <h2 className='text-[16px] mt-28'>Welcome Back !</h2>
+          <div className='mt-32'>
+             <h2 className='text-[16px]  text-[#e40fac]'>Get Started </h2>
             <div class='inputbox'>
               <ion-icon name='mail-outline'></ion-icon>
               <input
@@ -137,13 +137,14 @@ function Welcome() {
               </button>
             </div>
             <h5 className='text-white text-center mt-3 text-[12px]'>
-              You an account already ?
+              You have an account already ?
               <button onClick={() => setIsRegistering(false)}>Go Back</button>
             </h5>
           </div>
         ) : (
           <div className=''>
-            <h2 className='text-[16px] mt-32'>Welcome Back !</h2>
+            
+            <h2 className='text-[16px] mt-32  text-[#e40fac]'>Welcome Back !</h2>
             <div class='inputbox'>
               <ion-icon name='mail-outline'></ion-icon>
               <input

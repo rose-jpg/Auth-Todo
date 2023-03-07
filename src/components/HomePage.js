@@ -112,7 +112,7 @@ function HomePage() {
         <div>
           <AiOutlineCheck
             onClick={handleEditConfirm}
-            className='text-white text-[27px] absolute top-[18px] left-[250px]'
+            className='text-[#e40fac] text-[27px] absolute top-[18px] left-[250px]'
           />
         </div>
       ) : (
